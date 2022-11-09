@@ -10,49 +10,49 @@ public class UserRegistrationProblemOrignalTest{
 
     @Test
     public void firstName_IsValid_PassTest() {
-        result = userTest.isValidUserName("saurabh");
+        result = userTest.isValidUserName("Nilofar");
         Assertions.assertEquals(true, result);
     }
 
     @Test
     public void firstName_IsValid_FailTest() {
-        result = userTest.isValidUserName("saurabh88");
+        result = userTest.isValidUserName("Nilofarhh8h");
         Assertions.assertEquals(true,result);
     }
 
     @Test
     public void lastName_IsValid_PassTest() {
-        result = userTest.isValidUserLastName("vaidya");
+        result = userTest.isValidUserLastName("Mujawar");
         Assertions.assertEquals(true,result);
     }
 
     @Test
     public void lastName_IsValid_FailTest() {
-        result = userTest.isValidUserLastName("vaidya");
+        result = userTest.isValidUserLastName("Mujawar");
         Assertions.assertEquals(true,result);
     }
 
     @Test
     public void Email_IsValid_PassTest() {
-        result = userTest.isValidUserEmail("vaidya03@bl.co.in");
+        result = userTest.isValidUserEmail("nilofar.mujawar@bl.co.in");
         Assertions.assertEquals(true,result);
     }
 
     @Test
     public void Email_IsValid_FailTest() {
-        result = userTest.isValidUserEmail("vaidya03@bl.co.in");
+        result = userTest.isValidUserEmail("nilofar.mujawar@bl.co.in");
         Assertions.assertEquals(true,result);
     }
 
     @Test
     public void mobileNumber_isValidMobileNo() {
-        result = userTest.isValidMobileNo("8468833118");
+        result = userTest.isValidMobileNo("9955655668");
         Assertions.assertEquals(true,result);
     }
 
     @Test
     public void mobileNumber_IsValid_FailTest() {
-        result = userTest.isValidMobileNo("9468833118");
+        result = userTest.isValidMobileNo("8955655668");
         Assertions.assertEquals(true,result);
     }
 
