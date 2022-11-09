@@ -130,6 +130,44 @@ public class UserRegistrationProblem {
     }
 
     /**
+     * create a method name as isValidPassword this is parameterized method
+     *  Function to validate the userpassword
+     *  Function to validate the password.
+     * @param password
+     * @return password
+     */
+    public static boolean isValidPassword1(String password)
+    {
+        /**
+         * Regex to check valid password.
+         * ^ represents starting character of the string.
+         * .{8,} represents at least 8 characters and more than characters.
+         * $ represents the end of the string.
+         */
+        String regex = "^[a-zA-z1-9]{8,}$";
+        /**
+         * Compile the Regex
+         */
+        Pattern p = Pattern.compile(regex);
+        /**
+         * If the password is empty then return false
+         */
+        if (password == null) {
+            return false;
+        }
+        /**
+         *  Pattern class contains matcher() method to find matching between given password
+         *  and regular expression.
+         */
+        Matcher m = p.matcher(password);
+        /**
+         *  Return if the password matched the Regex
+         */
+        return m.matches();
+    }
+
+
+    /**
      * create a main method , all program execute in main method
      * @param args no arguments
      */
@@ -148,12 +186,17 @@ public class UserRegistrationProblem {
         /**
          *  Test Case: 3 for Email
          */
-        String str3 ="abc.xyz@bl.co.in"; //email
+        String str3 ="Vaidya03@bl.co.in"; //email
         System.out.println(isValidUserEmail(str3));
         /**
          * Test Case: 4 for mobile no
          */
         String str4 ="+91-8468833118"; //usermobilenumber
         System.out.println(isValidMobileNo(str4));
+        /**
+         *  Test Case: 5 for password1 no
+         */
+        String str5 ="BridgeLabz"; //userpassword
+        System.out.println(isValidPassword1(str5));
     }
 }
