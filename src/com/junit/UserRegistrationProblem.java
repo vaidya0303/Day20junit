@@ -1,17 +1,5 @@
 package com.junit;
-/**
- * UC1 :- As a User need to enter a valid First Name
- *        - First name starts with Cap and has minimum 3 characters
- * UC2 :- As a User need to enter a valid Last Name
- *        - Last name starts with Cap and has minimum 3 characters
- * UC3 :- As a User need to enter  a valid email
- *        - E.g. abc.xyz@bl.co.in
- *        - Email has 3 mandatory parts (abc, bl& co) and 2 optional (xyz & in) with precise @ and . positions
- */
 
-/**
- *  import matcher class and pattern class
- */
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -58,8 +46,8 @@ public class UserRegistrationProblem {
      * @param lastname
      * @return userlastname
      */
-    public static boolean isValidUserLastName(String lastname)
-    {
+    public static boolean isValidUserLastName(String lastname)  {
+
         /**
          *  Regex to check valid userlastname.
          */
@@ -117,7 +105,30 @@ public class UserRegistrationProblem {
          */
         return m.matches();
     }
-    
+
+    /**
+     * create a method name as isValidMobileNo this is parameterized method
+     * @param mobileNumber
+     * @return boolean value
+     */
+    public static boolean isValidMobileNo(String mobileNumber)  {
+        /**
+         * (0/91): number starts with (0/91)
+         * [7-9]: starting of the number may contain a digit between 0 to 9
+         * [0-9]: then contains digits 0 to 9
+         */
+        Pattern ptrn = Pattern.compile("^((\\+|00)(\\d{1,3})[\\s-]?)?(\\d{10})$");
+
+        /**
+         *  the matcher() method creates a matcher that will match the given input against this pattern
+         */
+        Matcher match = ptrn.matcher(mobileNumber);
+        /**
+         * returns a boolean value
+         */
+        return (match.find() && match.group().equals(mobileNumber));
+    }
+
     /**
      * create a main method , all program execute in main method
      * @param args no arguments
@@ -127,17 +138,22 @@ public class UserRegistrationProblem {
         /**
          *  Test Case: 1 for Fist Name
          */
-        String str1 = "Nilofar";
+        String str1 = "Saurabh"; //first name
         System.out.println(isValidUsername(str1));
         /**
          * Test Case: 2 for last Name
          */
-        String str2 = "Mujawar";
+        String str2 = "Vaidya"; //last name
         System.out.println(isValidUserLastName(str2));
         /**
          *  Test Case: 3 for Email
          */
         String str3 ="abc.xyz@bl.co.in"; //email
         System.out.println(isValidUserEmail(str3));
+        /**
+         * Test Case: 4 for mobile no
+         */
+        String str4 ="+91-8468833118"; //usermobilenumber
+        System.out.println(isValidMobileNo(str4));
     }
 }
