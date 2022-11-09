@@ -1,5 +1,6 @@
 package com.junit;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,7 +11,7 @@ public class UserRegistrationProblem {
      * @param firstname of string
      * @return username
      */
-    public static boolean isValidUsername(String firstname) {
+    public static boolean isValidUserName(String firstname) {
 
         /**
          *  Regex to check valid username.
@@ -265,6 +266,35 @@ public class UserRegistrationProblem {
          */
         return m.matches();
     }
+    public static boolean isemailValidation(String emailID){
+        /**
+         * regex pattern for email
+         * 1)must contain character before @
+         * 2)must contain @ symbol after char
+         * 3)must contain char after @
+         * 4)must contain "."  symbol before com or in
+         */
+        String regex = "^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?";
+        /**
+         * Compile the Regex
+         */
+        Pattern p = Pattern.compile(regex);
+        /**
+         * If the useremail is empty then return false
+         */
+        if (emailID == null) {
+            return false;
+        }
+        /**
+         * Pattern class contains matcher() method to find matching between given useremail
+         * and regular expression.
+         */
+        Matcher m = p.matcher(emailID);
+        /**
+         * Return if the useremail matched the Regex
+         */
+        return m.matches();
+    }
     /**
      * create a main method , all program execute in main method
      * @param args no arguments
@@ -275,7 +305,7 @@ public class UserRegistrationProblem {
          *  Test Case: 1 for Fist Name
          */
         String str1 = "saurabh"; //first name
-        System.out.println(isValidUsername(str1));
+        System.out.println(isValidUserName(str1));
         /**
          * Test Case: 2 for last Name
          */
@@ -286,7 +316,7 @@ public class UserRegistrationProblem {
          */
         String str3 ="vaidya03@bl.co.in"; //email
         System.out.println(isValidUserEmail(str3));
-         /**
+        /**
          * Test Case: 4 for mobile no
          */
         String str4 ="+91-8468833118"; //usermobilenumber
@@ -311,6 +341,11 @@ public class UserRegistrationProblem {
          */
         String str8 ="Bridgelabz@1"; //userpassword4
         System.out.println(isValidPassword4(str8));
+        /**
+         *  Test Case: 9 for email validation
+         */
+        String str9 ="vaidya03@gmail.com"; //emailValidation4
+        System.out.println(isemailValidation(str9));
 
     }
 }
